@@ -5,7 +5,7 @@
     [favoriteMap]       NVARCHAR(50) NULL,
     PRIMARY KEY CLUSTERED ([id] ASC)
 );
-
+GO
 UPDATE DBO.Profiles
 SET favoriteMap='Milky Way'
 WHERE CAST((id) AS int) % 3 = 0
