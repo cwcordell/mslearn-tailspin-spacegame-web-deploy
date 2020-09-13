@@ -143,10 +143,10 @@ stages:
                   Check for schema changes
                   $file = Get-Content "d:\a\1\s\GeneratedOutputFiles\$(databasename)_Script.sql"
                   $containsWord = $file | %{$_ -match "CREATE" -or $_ -match "ALTER" -or $_ -match "DROP"}
-                  $length = (Get-Content "d:\a\1\s\GeneratedOutputFiles\$(databasename)_Script.sql").Length
+                  $length = $file.Length
                   Write-Host "Contains Word: $containsWord"
                   Write-Host "Length: $length"
-                  if ($containsWord -contains $true) {
+                  if ($containsWord -contains $true -and $length -gt 55 ) {
                     Install-Module VSTeam -Scope CurrentUser -Force
                     Set-VSTeamAccount –Account $(Acct) -PersonalAccessToken $(PAT)
                     $methodParameters = @{
@@ -166,7 +166,7 @@ stages:
                       Description = ""
                       Type = "Vsts"
                       Variables = $vars}
-                    Update-VSTeamVariableGroup @methodParameters} 
+                    Update-VSTeamVariableGroup @methodParameters}
   
   - stage: DBAVerificationApply
     variables: 
