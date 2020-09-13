@@ -124,6 +124,7 @@ stages:
                 deploymentAction: 'Script'
                 dacpacFile: '$(Pipeline.Workspace)/dropDacpac/Tailspin.SpaceGame.Database/bin/Debug/Tailspin.SpaceGame.Database.dacpac'
                 ipDetectionMethod: 'AutoDetect'
+                additionalArguments: "/p:BlockOnPossibleDataLoss=false"
             - task: PowerShell@2
               displayName: Show Auto Generated SQL Script
               inputs:
