@@ -2,7 +2,7 @@
     [id]                INT           NOT NULL,
     [userName]          NVARCHAR (50) NOT NULL,
     [avatarUrl]         NVARCHAR (50) NULL,
-    [favoriteMap]       NVARCHAR(30) NULL,
+    [favoriteMap]       NVARCHAR(50) NULL,
     [tempField]         NVARCHAR(50) NULL,
     PRIMARY KEY CLUSTERED ([id] ASC)
 );
