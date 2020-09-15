@@ -206,7 +206,7 @@ stages:
               displayName: 'Remove "schemaChanged" pipeline variable'
               inputs:
                 targetType: 'inline'
-                script: | 
+                script: |
                   Install-Module VSTeam -Scope CurrentUser -Force
                   Set-VSTeamAccount –Account $(Acct) -PersonalAccessToken $(PAT)
                   $methodParameters = @{
